@@ -68,39 +68,71 @@ shirtDesign.addEventListener('change', (e) => {
 
 /* Variables for the Register for activities section section */
 
-/* The total cost of the selected activities in the "Register for Activities" 
-section should be totaled and displayed for the user.
-
-steps
-1. crt var register for actv 
-and act cost
-
-2. set var for total price = 0
-
-3. add event list on reg for actve element 
-inside the element 
--create a var that holds the value of the price of the activity cost 
-this This will provide the cost of the activity that was just clicked.
-
-5. inside the event listener, create a conditional 
-to determine if the event.target was just checked or unchecked.
-
-
-
-*/
 
 const activityItems = document.querySelector("#activities");
 const activityPrice = document.querySelector('#activities-cost');
 let totalPrice = 0;
 
+/* Adds total cost of the selected workshops */
 
 activityItems.addEventListener('change', e => {
     let workshopCost = +e.target.getAttribute('data-cost');
 
-    e.target.checked ?  (workshopCost += totalPrice) : (totalPrice -=  workshopCost)
+    e.target.checked ? (totalPrice += workshopCost) : (totalPrice -=  workshopCost)
 
 
     activityPrice.innerText = `Total: $${totalPrice}`;
 
+});
+
+/* Variables for Payment Info section */
+
+const paymentMethod = document.querySelector('#payment');
+const paymentMethodMenu = document.querySelector('#payment')
+const paymentOptCC = document.querySelector('#credit-card');
+const paymentOptPayPal = document.querySelector('#paypal');
+const paymentOptBitCoin = document.querySelector('#bitcoin');
+
+
+
+/* Hides Paypal and Bitcoin payment box options on page load */
+paymentMethod.value = 'credit-card';
+paymentOptPayPal.style.display = 'none';
+paymentOptBitCoin.style.display = 'none';
+
+
+/* Displays payment options based on selected choice */
+paymentMethodMenu.addEventListener('change', e => {
+
+    paymentMethod.value = e.target.value;
+
+
+    if (paymentMethod.value === 'credit-card') {
+
+        paymentOptCC.style.display = 'block';
+        paymentOptBitCoin.style.display = 'none';
+        paymentOptPayPal.style.display = 'none';
+
+    }
+
+   
+    if (paymentMethod.value === 'paypal') {
+
+        paymentOptPayPal.style.display = 'block';
+        paymentOptCC.style.display = 'none';
+        paymentOptBitCoin.style.display = 'none';
+    
+
+    }
+
+    if (paymentMethod.value === 'bitcoin') {
+
+        paymentOptBitCoin.style.display = 'block';
+        paymentOptPayPal.style.display = 'none';
+        paymentOptCC.style.display = 'none';
+
+    }
 
 });
+
+/* Variables for Payment Info section */
