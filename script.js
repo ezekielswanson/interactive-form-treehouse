@@ -42,27 +42,27 @@ tShirtColor[0].disabled = true;
 
 
 /* This function enables the color input once a t shirt design is selected */
-/*
+
 shirtDesign.addEventListener('change', (e) => {
     tShirtColor[0].disabled = false;
     const tShirtColorOpt = tShirtColor.children;
 
     for (let i = 0; i < tShirtColorOpt.length; i++) {
         tShirtOptValue = e.target.value;
-        tShirtTheme = tShirtColorOpt.getAttribute('data-theme');
+        tShirtTheme = tShirtColorOpt[i].getAttribute('data-theme');
 
         if (tShirtOptValue ===  tShirtTheme) {
-            tShirtColorOpt[i].hidden = true;
+            tShirtColorOpt[i].hidden = false;
         }
 
         else {
-            tShirtColorOpt[i].hidden = false;
+            tShirtColorOpt[i].hidden = true;
         }
 
     }
     
 });
-*/
+
 
 
 
