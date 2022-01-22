@@ -1,6 +1,6 @@
 /* Variables for the basic info section */
 
-const nameFocus = document.getElementById('name');
+const nameField = document.getElementById('name');
 
 /* Variables for the Job Role section */
 
@@ -16,13 +16,7 @@ const tShirtColor = document.querySelector('#color');
 
 
 
-
-
-
-
-
-
-nameFocus.focus();
+nameField.focus();
 
 /* This function displays the other job role input if other is selected */
 otherJobRoleInpt.style.display = 'none';
@@ -37,14 +31,14 @@ jobRole.addEventListener('change', e => {
 
 /* Disables Color input on page load*/
 
-tShirtColor[0].disabled = true;
+tShirtColor.disabled = true;
 
 
 
 /* This function enables the color input once a t shirt design is selected */
 
 shirtDesign.addEventListener('change', (e) => {
-    tShirtColor[0].disabled = false;
+    tShirtColor.disabled = false;
     const tShirtColorOpt = tShirtColor.children;
 
     for (let i = 0; i < tShirtColorOpt.length; i++) {
@@ -135,4 +129,103 @@ paymentMethodMenu.addEventListener('change', e => {
 
 });
 
-/* Variables for Payment Info section */
+/* Variables for form validation */
+
+
+const email = document.querySelector('#email');
+const cardNumber = document.querySelector('#cc-num');
+const zip = document.querySelector('#zip');
+const cv = document.querySelector('#cvv');
+const form = document.getElementsByTagName("form");
+
+
+
+/* Functions For Form Validation */
+
+function nameValidator () {
+    const nameInput =  nameField.value;
+    return /^[a-zA-Z]+\s?[a-zA-z]+?\s?[a-zA-z]+?$/.test(nameInput);
+
+}
+
+function emailValidator () {
+
+    const emailInput = email.value;
+    if (emailInput === '' ) {
+        return  /^[a-zA-Z0-9.! #$%&'*+/=? ^_`{|}~-]+@[a-zA-Z0-9-]+(?:\. [a-zA-Z0-9-]+)*$/.test(emailInput);
+    }
+
+
+}
+
+function activitiesValidator () {
+    const selectedActivites = activitiesTotal > 0;
+    return selectedActivites;
+}
+
+function ccValidator () {
+
+    const ccInput = cardNumber.value;
+    return /^\d{13,16}$/.test(ccInput);
+
+
+}
+
+function zipValidator () {
+    const zipInput = zip.value;
+    return /^\d{5}$/.test(zipInput);
+
+}
+
+function cvValidator () {
+    const cvInput = cv.value;
+    return /^\d{3}$/.test(cvValidator);
+
+}
+
+
+/* Validates form field on submission */
+
+form.addEventListener('submit', e => {
+
+    if(!nameValidator(nameInput)); {
+
+        e.preventDefault();
+    }
+
+    if(!emailValidator(emailInput)); {
+
+        e.preventDefault();
+    }
+
+    if(!activitiesValidator(selectedActivites)); {
+
+        e.preventDefault();
+    }
+
+    if(!zipValidator(zipInput)); {
+
+        e.preventDefault();
+    }
+
+    if(! ccValidator(ccInput)); {
+
+        e.preventDefault();
+    }
+
+    if(! cvValidator(cvInput)); {
+
+        e.preventDefault();
+    }
+
+
+});
+
+
+
+
+
+
+
+
+
