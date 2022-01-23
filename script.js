@@ -186,6 +186,8 @@ function cvValidator () {
 
 /* Validates form field on submission */
 
+
+/*
 form.addEventListener('submit', e => {
 
     if(!nameValidator(nameInput)); {
@@ -220,6 +222,40 @@ form.addEventListener('submit', e => {
 
 
 });
+*/
+
+
+/* Variables for form error messages
+
+
+errors for checkboxes in Register for Activities
+need to select all so we need to loop
+*/
+
+const checkBox = document.querySelectorAll('input[type="checkbox"]');
+
+for (let i = 0; i < checkBox.length; i++ ) {
+    checkBox[i].addEventListener('focus', e => {
+        const checkBoxFocus = e.target.parentNode;
+        checkBoxFocus.classList.add('focus');
+
+
+    });
+
+    checkBox[i].addEventListener('blur', e => {
+
+        const checkBoxBlur = e.target.parentNode;
+        checkBoxBlur.classList.remove('focus');
+
+    });
+
+
+
+}
+
+
+
+
 
 
 
