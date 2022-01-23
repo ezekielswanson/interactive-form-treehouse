@@ -136,7 +136,7 @@ const email = document.querySelector('#email');
 const cardNumber = document.querySelector('#cc-num');
 const zip = document.querySelector('#zip');
 const cv = document.querySelector('#cvv');
-const form = document.getElementsByTagName("form");
+const form = document.querySelector("form");
 
 
 
@@ -187,7 +187,7 @@ function cvValidator () {
 /* Validates form field on submission */
 
 
-/*
+
 form.addEventListener('submit', e => {
 
     if(!nameValidator(nameInput)); {
@@ -222,15 +222,10 @@ form.addEventListener('submit', e => {
 
 
 });
-*/
 
 
-/* Variables for form error messages
 
-
-errors for checkboxes in Register for Activities
-need to select all so we need to loop
-*/
+/* Variables for Activities error messages */
 
 const checkBox = document.querySelectorAll('input[type="checkbox"]');
 
@@ -249,9 +244,32 @@ for (let i = 0; i < checkBox.length; i++ ) {
 
     });
 
+}
 
+
+
+/* Variables for form error messages */
+
+/* add form inputs validation */
+
+function makeInvalid (element) {
+
+    element.parentNode.classList.add('not-valid');
+    element.parentNode.classList.remove('valid');
+    element.parentNode.lastElementChild.style.display = 'block';
+
+};
+
+function makeValid (element) {
+
+    element.parentNode.classList.add('valid');
+    element.parentNode.classList.remove('not-valid');
+    element.parentNode.lastElementChild.style.display = 'none';
 
 }
+
+
+
 
 
 
