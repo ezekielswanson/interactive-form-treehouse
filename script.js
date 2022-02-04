@@ -22,8 +22,10 @@ nameField.focus();
 otherJobRoleInpt.style.display = 'none';
     
 /* This function displays the other job role input if other is selected */
+
+
 jobRole.addEventListener('change', e => {
-    if (e.target.value = 'other')  {
+    if (e.target.value === 'other')  {
         otherJobRoleInpt.style.display = 'block';
     }
 });
@@ -193,31 +195,37 @@ form.addEventListener('submit', e => {
     if(!nameValidator(nameInput)); {
 
         e.preventDefault();
+        alert('Input is invalid');
     }
 
     if(!emailValidator(emailInput)); {
 
         e.preventDefault();
+        alert('Input is invalid');
     }
 
     if(!activitiesValidator(selectedActivites)); {
 
         e.preventDefault();
+        alert('Input is invalid');
     }
 
     if(!zipValidator(zipInput)); {
 
         e.preventDefault();
+        alert('Input is invalid');
     }
 
     if(! ccValidator(ccInput)); {
 
         e.preventDefault();
+        alert('Input is invalid');
     }
 
     if(! cvValidator(cvInput)); {
 
         e.preventDefault();
+        alert('Input is invalid');
     }
 
 
