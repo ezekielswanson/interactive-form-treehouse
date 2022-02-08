@@ -47,14 +47,22 @@ shirtDesign.addEventListener('change', (e) => {
         tShirtOptValue = e.target.value;
         tShirtTheme = tShirtColorOpt[i].getAttribute('data-theme');
 
+
         if (tShirtOptValue ===  tShirtTheme) {
             tShirtColorOpt[i].hidden = false;
+            tShirtOptValue = true;
         }
 
-        else {
+        if (tShirtOptValue != tShirtTheme) {
             tShirtColorOpt[i].hidden = true;
+            tShirtOptValue = false;
+
         }
 
+       
+        
+
+       
     }
     
 });
