@@ -50,16 +50,14 @@ shirtDesign.addEventListener('change', (e) => {
 
         if (tShirtOptValue ===  tShirtTheme) {
             tShirtColorOpt[i].hidden = false;
-            tShirtOptValue = true;
+            tShirtColorOpt[i].setAttribute('selected', true);
         }
 
-        if (tShirtOptValue != tShirtTheme) {
+        else {
             tShirtColorOpt[i].hidden = true;
-            tShirtOptValue = false;
+            tShirtColorOpt[i].setAttribute('selected');
 
         }
-
-       
         
 
        
